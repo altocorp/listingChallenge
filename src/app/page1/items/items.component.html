@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-2 text-center">
+    <img [src]="item.logo">
+  </div>
+
+  <div class="col-md-4 details">
+    <div class="col">
+      <div class="row details1">
+        <div class="details1Company">{{item.company}}</div>
+        <div *ngIf="newTrue" class="details1BtnNew">NEW!</div>
+        <div *ngIf="featuredTrue" class="details1BtnFeat">FEATURED</div>
+      </div>
+    </div>
+    <div class="col details2"> {{item.position}}</div>
+    <div class="col">
+      <div class="row details3">
+        <div>{{item.postedAt}}</div>
+        <div>-</div>
+        <div>{{item.contract}}</div>
+        <div>-</div>
+        <div>{{item.location}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 description">
+    <div class="row description1">
+      <div (click)="roleClicked()">
+        {{item.role}}
+      </div>
+      <div (click)="levelClicked()">
+        {{item.level}}
+      </div>
+      <div *ngFor="let a of item.languages">
+        <app-languages [languages]="a"></app-languages>
+      </div>
+      <div *ngFor="let b of item.tools">
+        <app-tools [tools]="b"></app-tools>
+      </div>
+    </div>
+  </div>
+
+</div>

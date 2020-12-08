@@ -1,0 +1,10 @@
+<div class="header">
+    <img src="/assets/header/bg-header-desktop.svg">
+</div>
+
+
+<div class="row">
+  <div class="col-md-10 offset-1 blocItem" *ngFor="let i of itemsList">
+    <app-items [item]="i"></app-items>
+  </div>
+</div>
