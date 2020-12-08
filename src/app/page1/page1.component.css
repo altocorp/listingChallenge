@@ -20,7 +20,7 @@
 }
 
 .blocItem{
-    background-color: yellow;
+    background-color: rgba(0, 0, 0, 0.438);
     padding: 5vh 0;
     margin-bottom: 10vh;
     border-radius: 10px;
