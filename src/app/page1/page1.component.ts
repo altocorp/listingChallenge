@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { filter } from 'rxjs/operators';
-import { from } from 'rxjs';
+import { from, pipe } from 'rxjs';
+import { MsgService } from '../services/msg.service';
 
 
 
@@ -14,33 +15,69 @@ export class Page1Component implements OnInit {
 
   itemsList = []
 
-  constructor(private apiService: ApiService) { }
+  filterVar
+
+  constructor(private apiService: ApiService, private msgServive: MsgService) { }
 
   ngOnInit(): void {
     this.getApiData()
   }
 
-  // isSenior(vals){
-  //   return vals 
-  // }
 
   getApiData(){
     this.apiService.getData().subscribe(
-      (res) => {
+    (res) => {
       this.itemsList = res
-      let y = res[1].logo
-      console.log(y)
+      this.handleMsg()
     },
     (err) => {
       console.log(err)
-    })
+    }, 
+    () => console.log('HTTP request completed.'))
+  }
+
+  handleMsg(){
+    this.msgServive.getMsg().subscribe(
+      res => {
+       this.filterVar = res
+        if(this.filterVar == "React"){
+          this.itemsList = this.itemsList.filter( res => res.tools.indexOf("React") > -1)
+        }
+        console.log(this.filterVar)
+      }
+    )
+  }
 
   }
 
+
+
+
+  // getApiData(){
+  //   this.apiService.getData().subscribe(
+  //   (res) => {
+  //     this.itemsList = res
+  //     this.handleMsg()
+  //   },
+  //   (err) => {
+  //     console.log(err)
+  //   }, 
+  //   () => console.log('HTTP request completed.'))
+  // }
+
+  // handleMsg(){
+  //   this.msgServive.getMsg().subscribe(
+  //     res => {
+  //      this.filterVar = res
+  //       if(this.filterVar == "React"){
+  //         this.itemsList = this.itemsList.filter( res => res.tools.indexOf("React") > -1)
+  //       }
+  //       console.log(this.filterVar)
+  //     }
+  //   )
+  // }
+
+
   
 
 
-
-  
-
-}
