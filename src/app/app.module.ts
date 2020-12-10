@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { ItemsComponent } from './page1/items/items.component';
 import { LanguagesComponent } from './page1/items/languages/languages.component';
 import { ToolsComponent } from './page1/items/tools/tools.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ToolsComponent } from './page1/items/tools/tools.component';
     BrowserModule,
     HttpClientModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

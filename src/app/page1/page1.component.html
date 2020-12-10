@@ -2,6 +2,27 @@
     <img src="/assets/header/bg-header-desktop.svg">
 </div>
 
+<div class="row">
+  <div class="col-md-10 offset-1 blocInput">
+    <div class="row">
+      <div class="rowInput" *ngFor="let i of filterList">
+        <span class="inputBg1">{{i}}</span>  
+        <span class="inputBg2"><fa-icon [icon]="crossIcon"></fa-icon></span> 
+      </div>
+      <!-- <div class="rowInput">
+        <span class="inputBg1">CSS</span>  
+        <span class="inputBg2"><fa-icon [icon]="crossIcon"></fa-icon></span> 
+      </div>
+      <div class="rowInput">
+        <span class="inputBg1">HTML</span>  
+        <span class="inputBg2"><fa-icon [icon]="crossIcon"></fa-icon></span> 
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<div class="btn btn-primary" (click)="handleReset()">Reset</div>
+
 
 <div class="row">
   <div class="col-md-10 offset-1 blocItem" *ngFor="let i of itemsList">

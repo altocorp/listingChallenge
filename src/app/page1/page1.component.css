@@ -7,7 +7,6 @@
     padding:0;
 }
 
-
 .header{
     object-fit: cover;
     width: 100vw;
@@ -19,8 +18,48 @@
     background-color:  hsl(180, 8%, 52%);
 }
 
+.blocInput{
+    padding: 5vh 5vw;
+    font-size: 1.1rem;
+    display: grid;
+    align-content: center;
+    background-color: white;
+    margin-top: -7vh;
+    border-radius: 10px;
+}
+
+.rowInput{
+    padding: 0vh 1vw;
+}
+
+.inputBg1{
+    padding: 1vh 1vw;
+    font-size: 1rem;
+    border-radius: 10px 0 0 10px;
+    background-color: hsla(180, 8%, 52%, 0.205);
+    color:hsl(180, 29%, 50%);
+}
+
+.inputBg2{
+    padding: 1vh 1vw;
+    font-size: 1rem;
+    border-radius: 0 10px 10px 0;
+    background-color: hsl(180, 29%, 50%);
+    color: white;
+}
+
+.inputBg2:hover{
+    background-color: hsl(180, 14%, 20%);
+    cursor: pointer;
+    
+}
+
+fa-icon{
+    vertical-align: middle;
+}
+
 .blocItem{
-    background-color: rgba(0, 0, 0, 0.438);
+    background-color:  hsla(180, 8%, 52%, 0.205);
     padding: 5vh 0;
     margin-bottom: 10vh;
     border-radius: 10px;
