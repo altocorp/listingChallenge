@@ -75,8 +75,116 @@
     color:hsl(180, 29%, 50%);
     padding: 0.5vh 1vw;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .btn1{
     padding-right: 1vw;
+}
+
+#smallScreen {
+    display: none;
+}
+
+@media only screen and (max-width: 767px) {
+
+    #smallScreen {
+      display: block !important;
+    }
+
+    #bigScreen {
+      display: none !important;
+    }
+
+    .imgSmall{
+        display: grid;
+        align-content: center;
+      
+    }
+
+    .imgSmall>img{
+        width: 11vw;
+    }
+
+    .detailsSmall{
+        display: grid;
+        padding-left: 5vw;
+    }
+
+    .details1BtnNewSmall{
+        padding: 0.5vh 0.5vw;
+        font-size: 0.7rem;
+        background-color: hsl(180, 29%, 50%);
+        border-radius: 10px;
+        color: white;
+    }
+    
+    .details1BtnFeatSmall{
+        border-radius: 10px;
+        padding: 0.5vh 0.5vw;
+        font-size: 0.7rem;
+        background-color: hsl(180, 14%, 20%);
+        color: white;
+    }
+
+    .details3>span{
+        padding-right: 0.5vw;
+    }
+
+    .descriptionSmall{
+        text-align: end;
+    }
+
+    .descriptionSmall>span{
+        margin: 4vh 0.5vw 0;
+        font-size: 1rem;
+        font-weight: 500;
+        background-color: hsl(180, 31%, 95%);
+        color:hsl(180, 29%, 50%);
+        padding: 0.5vh 1vw;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+}
+
+
+
+@media only screen and (max-width: 467px) {
+
+    .imgSmall>img{
+        width: 11vw;
+    }
+
+    .descriptionSmall>span{
+        font-size: 0.7rem;
+    }
+    
+
+    
+}
+
+
+@media only screen and (max-width: 385px) {
+
+    .details1BtnFeatSmall{
+        font-size: 0.5rem;
+    }
+
+    .details1BtnNewSmall{
+        font-size: 0.5rem;
+    }
+
+    .details1Company{
+        font-size: 0.7rem;
+    }
+
+    .details2{
+        font-size: 0.8rem;
+    }
+
+    .details3>span{
+        font-size: 0.6rem;
+    }
+    
 }

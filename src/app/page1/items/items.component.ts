@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MsgService } from 'src/app/services/msg.service';
 
+
+
 @Component({
   selector: 'app-items',
   templateUrl: './items.component.html',
@@ -14,6 +16,7 @@ export class ItemsComponent implements OnInit {
 
   newTrue
   featuredTrue
+  
 
 
   constructor(private msgService : MsgService) { }

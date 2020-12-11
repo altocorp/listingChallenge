@@ -1,10 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { filter } from 'rxjs/operators';
-import { from, pipe } from 'rxjs';
 import { MsgService } from '../services/msg.service';
 
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { MsgRemoveService } from '../services/msg-remove.service';
 
 
 
@@ -23,12 +21,13 @@ export class Page1Component implements OnInit {
 
   filterVar
   filterList = []
-
-  crossIcon = faTimes
+  filterVarToRemove
 
   reset = true
+  displayFilterInput = false
 
-  constructor(private apiService: ApiService, private msgServive: MsgService) { }
+
+  constructor(private apiService: ApiService, private msgServive: MsgService, private msgRemoveService: MsgRemoveService) { }
 
   ngOnInit(): void {
     this.getApiData()
@@ -47,75 +46,63 @@ export class Page1Component implements OnInit {
     () => console.log('HTTP request completed.'))
   }
 
+
   handleMsg(){
+
     this.msgServive.getMsg().subscribe(
       res => {
-       this.filterVar = res
+        this.filterVar = res
 
-       if(this.filterList.includes(this.filterVar) == false)
-      {this.filterList.push(this.filterVar)}
+        if(this.filterList.includes(this.filterVar) == false)
+        {this.filterList.push(this.filterVar)}
 
-       this.itemsList = this.itemsList.filter( res => res.role == this.filterVar || res.level == this.filterVar || res.tools.indexOf(this.filterVar) > -1 || res.languages.indexOf(this.filterVar) > -1)
-       
-       this.handleReset2()
+        this.filterList.forEach(element => {
+          this.itemsList = this.itemsList.filter( res => res.role == element || res.level == element || res.tools.indexOf(element) > -1 || res.languages.indexOf(element) > -1)
+        });
+        
+       this.handleRemoveFilter()
+       this.filterInput() 
 
       }
     )
   }
 
-  handleReset() {
-    this.msgServive.sendMsg(this.reset)
-  }
-
-  handleReset2() {
-    this.msgServive.getMsg().subscribe(
+  handleRemoveFilter() {
+    this.msgRemoveService.getMsg().subscribe(
       res => {
-        if(res == true){
-          this.itemsList = this.itemsList2 
-          this.filterList = []
-        }
-       }
+        this.itemsList = this.itemsList2 
+
+        this.filterVarToRemove = res
+
+        this.filterList = this.filterList.filter(res => res != this.filterVarToRemove)
+
+        this.filterList.forEach(element => {
+          this.itemsList = this.itemsList.filter( res => res.role == element || res.level == element || res.tools.indexOf(element) > -1 || res.languages.indexOf(element) > -1)
+        });
+      
+      }
     )
-  
   }
 
-
-
-
-
-  
-
-
+  filterInput(){
+    if(this.filterList.length != 0){
+      this.displayFilterInput = true
+    } else {
+      this.displayFilterInput = false
+    }
   }
+}
 
 
-
-
-  // getApiData(){
-  //   this.apiService.getData().subscribe(
-  //   (res) => {
-  //     this.itemsList = res
-  //     this.handleMsg()
-  //   },
-  //   (err) => {
-  //     console.log(err)
-  //   }, 
-  //   () => console.log('HTTP request completed.'))
-  // }
-
-  // handleMsg(){
+   // handleReset() {
   //   this.msgServive.getMsg().subscribe(
   //     res => {
-  //      this.filterVar = res
-  //       if(this.filterVar == "React"){
-  //         this.itemsList = this.itemsList.filter( res => res.tools.indexOf("React") > -1)
+  //       if(res == true){
+  //         this.itemsList = this.itemsList2 
+  //         this.filterList = []
   //       }
-  //       console.log(this.filterVar)
-  //     }
+  //      }
   //   )
   // }
-
-
-  
 
 

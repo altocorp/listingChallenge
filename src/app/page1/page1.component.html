@@ -1,31 +1,45 @@
 <div class="header">
-    <img src="/assets/header/bg-header-desktop.svg">
+  <img class="imgBg" src="/assets/header/bg-header-desktop.svg">
 </div>
 
-<div class="row">
-  <div class="col-md-10 offset-1 blocInput">
+<div id="bigScreen">
+  <div *ngIf="displayFilterInput">
     <div class="row">
-      <div class="rowInput" *ngFor="let i of filterList">
-        <span class="inputBg1">{{i}}</span>  
-        <span class="inputBg2"><fa-icon [icon]="crossIcon"></fa-icon></span> 
+      <div class="col-md-10 offset-1 blocInput">
+        <div class="row">
+          <div class="rowInput" *ngFor="let i of filterList">
+            <app-filters [filter]="i"></app-filters>
+          </div>
+        </div>
       </div>
-      <!-- <div class="rowInput">
-        <span class="inputBg1">CSS</span>  
-        <span class="inputBg2"><fa-icon [icon]="crossIcon"></fa-icon></span> 
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-10 offset-1 blocItem" *ngFor="let i of itemsList">
+      <app-items [item]="i"></app-items>
+    </div>
+  </div>  
+</div>
+
+
+<div id="smallScreen">
+  <div *ngIf="displayFilterInput">
+    <div class="row">
+      <div class="col blocInput2">
+        <div class="row">
+          <div class="rowInput" *ngFor="let i of filterList">
+            <app-filters [filter]="i"></app-filters>
+          </div>
+        </div>
       </div>
-      <div class="rowInput">
-        <span class="inputBg1">HTML</span>  
-        <span class="inputBg2"><fa-icon [icon]="crossIcon"></fa-icon></span> 
-      </div> -->
+    </div>
+  </div>
+  
+  <div>
+    <div class="blocItem2" *ngFor="let i of itemsList">
+      <app-items [item]="i"></app-items>
     </div>
   </div>
 </div>
 
-<div class="btn btn-primary" (click)="handleReset()">Reset</div>
-
-
-<div class="row">
-  <div class="col-md-10 offset-1 blocItem" *ngFor="let i of itemsList">
-    <app-items [item]="i"></app-items>
-  </div>
-</div>

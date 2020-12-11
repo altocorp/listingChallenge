@@ -11,6 +11,7 @@ import { ItemsComponent } from './page1/items/items.component';
 import { LanguagesComponent } from './page1/items/languages/languages.component';
 import { ToolsComponent } from './page1/items/tools/tools.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FiltersComponent } from './page1/filters/filters.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     Page1Component,
     ItemsComponent,
     LanguagesComponent,
-    ToolsComponent
+    ToolsComponent,
+    FiltersComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,54 @@
+.inputBg1{
+    padding: 1vh 1vw;
+    font-size: 1rem;
+    border-radius: 10px 0 0 10px;
+    background-color: hsla(180, 8%, 52%, 0.205);
+    color:hsl(180, 29%, 50%);
+}
+
+.inputBg2{
+    padding: 1vh 1vw;
+    font-size: 1rem;
+    border-radius: 0 10px 10px 0;
+    background-color: hsl(180, 29%, 50%);
+    color: white;
+}
+
+.inputBg2:hover{
+    background-color: hsl(180, 14%, 20%);
+    cursor: pointer;
+    
+}
+
+fa-icon{
+    vertical-align: middle;
+}
+
+#smallScreen {
+    display: none;
+}
+
+@media only screen and (max-width: 767px) {
+
+    #smallScreen {
+      display: block !important;
+    }
+  
+    #bigScreen {
+      display: none !important;
+    }
+
+    .inputBg1{
+        font-size: 0.8rem;
+        padding: 1vh 0.5vw;
+        background-color: transparent;
+    }
+    
+    .inputBg2{
+        font-size: 0.8rem;
+        padding: 1vh 0.5vw;
+        background-color: transparent;
+        color:hsl(180, 29%, 50%);
+    }
+  
+}
