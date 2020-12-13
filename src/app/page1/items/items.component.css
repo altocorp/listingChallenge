@@ -111,6 +111,10 @@
         padding-left: 5vw;
     }
 
+    .details1CompanySmall{
+        color:hsl(180, 29%, 50%);
+    }
+
     .details1BtnNewSmall{
         padding: 0.5vh 0.5vw;
         font-size: 0.7rem;
